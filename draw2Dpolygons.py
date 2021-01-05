@@ -1,7 +1,6 @@
 from math import cos, sin, pi
 
 class Draw2DShapes():
-
     def circle(canvas, c, r, **kwargs): #outColor, fillColor, width):
         # because tkinter doesn't have a half decent way to draw a circle
         x = c[0]
@@ -43,7 +42,16 @@ class Draw2DShapes():
         y = c[1]
         return canvas.create_polygon(x-0.5*w, y-0.5*h, x +0.5*w, y-0.5*h, x+0.5*w, y+0.5*h, x-0.5*w, y+0.5*h, **kwargs)
 
-    def nSidedPolygonPts(x, y, r, n, buf=0):
+    def starByCenter(canvas, c, rad, **kwargs):
+        x = c[0]
+        y = c[1]
+        return canvas.create_polygon(x+rad*cos(9*pi/10 - pi/2), y+rad*sin(9*pi/10 - pi/2), #162
+                                     x+rad*cos(pi/10 - pi/2), y+rad*sin(pi/10 - pi/2),  #18
+                                     x+rad*cos(13*pi/10 - pi/2), y+rad*sin(13*pi/10 - pi/2), #234
+                                     x+rad*cos(pi/2 - pi/2), y+rad*sin(pi/2 - pi/2),#90
+                                     x+rad*cos(17*pi/10 - pi/2), y+rad*sin(17*pi/10 - pi/2), **kwargs) #306
+
+    def nSidedPolygonPts(canvas, x, y, r, n, buf=0):
         # calculate and return points for a n sided figure that will encompass a circle at x,y with radius r with buffer
         # set buf == 0 to draw exactly on the circle
         rad = r + buf

@@ -38,11 +38,11 @@ class Viewer(Frame):
         self.draw(w)
 
     def draw(self, w):
-        self.fb = [0,0, 50,50, 40,80, 0,0]  #create_polygon = (x0,y0,x1,y1,...options))
+        self.fb = [0,0,0,36,18,36,18,0]  #create_polygon = (x0,y0,x1,y1,...options))
         self.ob = [70,70]
         w.create_polygon(self.fb, outline=colorList.red, fill="", width=1)
         Draw2DShapes.circle(w, [self.ob[0], self.ob[1]], 10, outline=colorList.agua, width=2)
-
         Draw2DShapes.rectangleByCenter(w, [100,100], 25, 40, outline=colorList.orange, fill="", width=2)
-        Draw2DShapes.circle(w, [500, 500], 4, outline=colorList.green4, width=2)
         Draw2DShapes.square(w, [200,200], 20,outline=colorList.orchid, fill="", width=1)
+        Draw2DShapes.starByCenter(w, [300,300], 40, outline=colorList.black, fill=colorList.yellow, width=1)
+        Draw2DShapes.circle(w, [300, 300], 4, outline=colorList.green4, width=2)
